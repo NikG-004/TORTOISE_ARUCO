@@ -1,0 +1,15 @@
+<launch>
+  <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
+
+    <!-- Load global and local costmap parameters -->
+    <rosparam file="$aruco/config/global_costmap_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$aruco/config/local_costmap_params.yaml" command="load" ns="local_costmap" />
+
+    <!-- Load local planner parameters -->
+    <rosparam file="$aruco/config/base_local_planner_params.yaml" command="load" ns="TrajectoryPlannerROS" />
+
+    <!-- Load general move_base parameters -->
+    <rosparam file="$aruco/config/move_base_params.yaml" command="load" />
+
+  </node>
+</launch>
